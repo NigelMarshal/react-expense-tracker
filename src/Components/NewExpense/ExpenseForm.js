@@ -5,7 +5,7 @@ const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
-
+  //Log in entered values of new expense
   const titleChangeHandler = (e) => {
     setEnteredTitle(e.target.value);
   };
@@ -18,6 +18,7 @@ const ExpenseForm = (props) => {
     setEnteredDate(e.target.value);
   };
 
+  //On submit update expenseData with entered data
   const submitHandler = (e) => {
     e.preventDefault();
 
@@ -26,7 +27,7 @@ const ExpenseForm = (props) => {
       amount: enteredAmount,
       date: new Date(enteredDate),
     };
-
+    //Reset form fields after submission
     props.onSaveExpenseData(expenseData);
     setEnteredTitle("");
     setEnteredAmount("");
